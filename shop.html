@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="./main.css" rel="stylesheet">
+  <style>
+    @font-face {
+  font-family: 'SF Pro Display';
+  src: url('fonts/SFPRODISPLAYREGULAR.OTF') format('opentype');
+  /* Add other font properties as needed */
+}
+html {
+    background-color: #fbfbe9;
+  }
+    .hero01-navbar {
+      background-color: #000000;
+      color: white;
+      padding: 100px;
+    }
+
+    .hero01-navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    .hero01-navbar li {
+      margin-right: 10px;
+    }
+
+    .hero01-navbar a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .hero01-navbar a:hover {
+      text-decoration: underline;
+    }
+
+    .product-listing {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .product {
+      background-color: #f0f0f0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .product-image {
+      width: 110px;
+      height: 120px;
+      object-fit: auto;
+      border-radius: 5px;
+    }
+
+    .product-title {
+      font-family: 'SF Pro Display';
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .product-price {
+      font-family: 'SF Pro Display';
+      margin-top: 5px;
+      font-size: 16px;
+    }
+
+    .product-button {
+      font-family: 'SF Pro Display';
+      margin-top: 10px;
+      padding: 8px 16px;
+      border: none;
+      background-color: black;
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+
+      .hero01-navbar {
+  background-color: #050505;
+  color: white;
+  padding: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.hero01-heading {
+  font-family: 'SF Pro Display';
+  margin-left: -100px;
+  margin-top: 100px;
+  margin-bottom: -100px;
+}
+
+.hero01-content {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.hero01-description {
+  font-family: 'SF Pro Display';
+  flex: 1;
+  margin-right: 20px;
+}
+
+.hero01-image {
+  height: 100px;
+  width: 100px;;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+.product-sorter {
+      margin-bottom: 20px;
+    }
+
+    .product-sorter select {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #f0f0f0;
+      font-family: 'SF Pro Display', sans-serif;
+      font-size: 14px;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url('public/playground_assets/arrow-down.svg');
+      background-repeat: no-repeat;
+      background-position: right center;
+      background-size: 16px;
+      cursor: pointer;
+    }
+
+
+/* Rest of the CSS code */
+
+    
+    }
+  </style>
+</head>
+<body>
+    <div class="hero01-hero01">
+        <div class="hero01-navbar">
+            <div class="hero01-navbar">
+                <img alt="RectangleI162" src="public/playground_assets/rectangle.png" class="hero01-rectangle">
+                <div class="hero01-frame4">
+                  <h1 class="hero01-heading" style="font-family: 'SF Pro Display', sans-serif;"><br><br>The Summer 2023 Collections</h1>
+
+                  <div class="hero01-content">
+                    <p class="hero01-description" style="font-family: 'SF Pro Display', sans-serif;"><br><br><br><br>Discover exclusive and rare items from our Summer 2023 collection, including photo cards, rare action figures, toys, and more.</p>
+                    <img alt="Summer Collection" src="image.jpg" class="hero01-image">
+                  </div>
+
+                </div>
+                <img alt="RectangleI162" src="public/playground_assets/rectangle.png" class="hero01-rectangle">
+                <div class="hero01-frame4">
+                  <span class="hero01-text"><a href="shop.html">Shop</a></span>
+                  <span class="hero01-text02" style="color: white;">Stories</span>
+                  <span class="hero01-text04"  style="color: white;">About</span>
+                  <div class="hero01-group6">
+                    <img alt="SearchI162" src="public/playground_assets/search9.svg" class="hero01-search">
+                    <span class="hero01-text06"  style="color: white;">Search</span>
+                  </div>
+                </div>
+                <img alt="Line1I162" src="public/playground_assets/line36t.svg" class="hero01-line1">
+                <div class="hero01-frame5">
+                  <div class="hero01-group4">
+                    <span class="hero01-text08"  style="color: white;">3</span>
+                    <img alt="VectorI162" src="public/playground_assets/vectorer7.svg" class="hero01-vector">
+                  </div>
+                  <span class="hero01-text09"  style="color: white;">Login</span>
+                </div>
+              </div>
+              </div>
+              
+              <br><br><br><br><br><br><br><br>
+              <div class="product-sorter">
+                <label for="sort">Sort by:</label>
+                <select id="sort">
+                  <option value="default">Default</option>
+                  <option value="az">Name (A-Z)</option>
+                  <option value="za">Name (Z-A)</option>
+                  <option value="priceHigh">Price (High to Low)</option>
+                  <option value="priceLow">Price (Low to High)</option>
+
+                  <script>
+                    // JavaScript logic to handle sorting functionality
+                    const selectSort = document.getElementById('sort');
+                    const productList = document.querySelector('.product-listing');
+                
+                    selectSort.addEventListener('change', () => {
+                      const selectedValue = selectSort.value;
+                      const products = Array.from(productList.getElementsByClassName('product'));
+                
+                      switch (selectedValue) {
+                        case 'az':
+                          products.sort((a, b) => a.querySelector('.product-title').textContent.localeCompare(b.querySelector('.product-title').textContent));
+                          break;
+                        case 'za':
+                          products.sort((a, b) => b.querySelector('.product-title').textContent.localeCompare(a.querySelector('.product-title').textContent));
+                          break;
+                        case 'priceHigh':
+                          products.sort((a, b) => parseFloat(b.querySelector('.product-price').textContent.replace('$', '')) - parseFloat(a.querySelector('.product-price').textContent.replace('$', '')));
+                          break;
+                        case 'priceLow':
+                          products.sort((a, b) => parseFloat(a.querySelector('.product-price').textContent.replace('$', '')) - parseFloat(b.querySelector('.product-price').textContent.replace('$', '')));
+                          break;
+                        default:
+                          return;
+                      }
+                
+                      products.forEach(product => productList.appendChild(product));
+                    });
+                  </script>
+                </select>
+              </div>
+
+              
+  <div class="product-listing">
+    <div class="product">
+      <img src="public\playground_assets\image-removebg-preview.png" alt="Product Image" class="product-image">
+      <h3 class="product-title">Boa Hancock</h3>
+      <p class="product-price">$19.99</p>
+      <button class="product-button">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="public\playground_assets\image-removebg-preview.png" alt="Product Image" class="product-image">
+      <h3 class="product-title">Product 2</h3>
+      <p class="product-price">$24.99</p>
+      <button class="product-button">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="image3.jpg" alt="Product Image" class="product-image">
+      <h3 class="product-title">Product 3</h3>
+      <p class="product-price">$14.99</p>
+      <button class="product-button">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="image4.jpg" alt="Product Image" class="product-image">
+      <h3 class="product-title">Product 4</h3>
+      <p class="product-price">$29.99</p>
+      <button class="product-button">Add to Cart</button>
+    </div>
+  </div>
+</body>
+</html>
